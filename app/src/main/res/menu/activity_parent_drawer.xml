@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/search"
+            android:icon="@drawable/search"
+            android:iconTint="#000000"
+            android:title="Search" />
+        <item
+            android:id="@+id/search_history"
+            android:icon="@drawable/history"
+            android:iconTint="#000000"
+            android:title="Search History" />
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/logout"
+            android:iconTint="#000000"
+            android:title="Logout" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:iconTint="#000000"
+                android:icon="@drawable/share"
+                android:title="Share" />
+            <item
+                android:iconTint="#000000"
+                android:id="@+id/nav_send"
+                android:icon="@drawable/email"
+                android:title="Send" />
+        </menu>
+    </item>
+
+</menu>

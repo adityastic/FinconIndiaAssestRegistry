@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Fincon India Asset Registry</string>
+
+    <!-- Strings related to login -->
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="title_activity_parent">ParentActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="title_activity_scrolling">Detail Activity</string>
+
+    <string name="password">PASSWORD</string>
+    <string name="login">LOGIN</string>
+    <string name="forgot_password">FORGOT PASSWORD?</string>
+    <string name="mobile_no">EMAIL</string>
+</resources>

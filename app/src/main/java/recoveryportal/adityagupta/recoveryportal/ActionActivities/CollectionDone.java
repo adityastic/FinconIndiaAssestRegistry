@@ -7,8 +7,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -26,8 +26,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 
-import recoveryportal.adityagupta.recoveryportal.Placeholders.NOInternetPlaceHolder;
 import recoveryportal.adityagupta.recoveryportal.ParentActivity;
+import recoveryportal.adityagupta.recoveryportal.Placeholders.NOInternetPlaceHolder;
 import recoveryportal.adityagupta.recoveryportal.R;
 import recoveryportal.adityagupta.recoveryportal.Utils.Common;
 import recoveryportal.adityagupta.recoveryportal.Utils.ReadJsonFile;
@@ -37,15 +37,13 @@ public class CollectionDone extends AppCompatActivity {
     boolean clicked = false;
     TextView total, actual;
     int tt;
-
+    ArrayAdapter<String> adapter1, adapter2, adapter3;
 
     @Override
     public void onBackPressed() {
         this.finish();
         super.onBackPressed();
     }
-
-    ArrayAdapter<String> adapter1, adapter2, adapter3;
 
     int getNumber(EditText s) {
         if (s.getText().toString().length() > 0)
@@ -82,7 +80,7 @@ public class CollectionDone extends AppCompatActivity {
         tt = (Integer.parseInt(Common.searchResults.emiAmount) * (Integer.parseInt(Common.searchResults.bucket) + 1)) +
                 Integer.parseInt(Common.searchResults.bounceChargeDue) +
                 Integer.parseInt(Common.searchResults.lppDue);
-        total.setText("₹ " + String.valueOf(tt));
+        total.setText("₹ " + tt);
 
         actual.setText("₹ " + "0");
 
@@ -131,7 +129,7 @@ public class CollectionDone extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 int sum = getNumber(et1) + getNumber(et2) + getNumber(et3) + getNumber(et4);
-                actual.setText("₹ " + String.valueOf(sum));
+                actual.setText("₹ " + sum);
                 setColor();
             }
         });
@@ -151,7 +149,7 @@ public class CollectionDone extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 int sum = getNumber(et1) + getNumber(et2) + getNumber(et3) + getNumber(et4);
-                actual.setText("₹ " + String.valueOf(sum));
+                actual.setText("₹ " + sum);
                 setColor();
             }
         });
@@ -171,7 +169,7 @@ public class CollectionDone extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 int sum = getNumber(et1) + getNumber(et2) + getNumber(et3) + getNumber(et4);
-                actual.setText("₹ " + String.valueOf(sum));
+                actual.setText("₹ " + sum);
                 setColor();
             }
         });
@@ -191,7 +189,7 @@ public class CollectionDone extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 int sum = getNumber(et1) + getNumber(et2) + getNumber(et3) + getNumber(et4);
-                actual.setText("₹ " + String.valueOf(sum));
+                actual.setText("₹ " + sum);
                 setColor();
             }
         });

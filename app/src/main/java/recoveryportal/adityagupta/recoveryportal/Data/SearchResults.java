@@ -8,10 +8,10 @@ import java.util.Date;
 
 public class SearchResults {
 
-    public String status,id,customerName,vehicleModel,loanNo,engineNo,regNo,chassisNo,bucket,principalOS,emiAmount,bounceChargeDue,lppDue,firstEmiueDate,loanEndDate,branch,client;
+    public String status, id, customerName, vehicleModel, loanNo, engineNo, regNo, chassisNo, bucket, principalOS, emiAmount, bounceChargeDue, lppDue, firstEmiueDate, loanEndDate, branch, client;
     public Date time;
 
-    public SearchResults(Date time,String status,String id, String customerName, String vehicleModel, String loanNo, String engineNo, String regNo, String chassisNo, String bucket, String principalOS, String emiAmount, String bounceChargeDue, String lppDue, String firstEmiueDate, String loanEndDate, String branch, String client) {
+    public SearchResults(Date time, String status, String id, String customerName, String vehicleModel, String loanNo, String engineNo, String regNo, String chassisNo, String bucket, String principalOS, String emiAmount, String bounceChargeDue, String lppDue, String firstEmiueDate, String loanEndDate, String branch, String client) {
         this.id = id;
         this.customerName = customerName;
         this.vehicleModel = vehicleModel;

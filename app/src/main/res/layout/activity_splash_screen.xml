@@ -3,8 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_gravity="center"
-    android:gravity="center"
     android:background="@drawable/login_bg"
+    android:gravity="center"
     android:orientation="vertical">
 
     <LinearLayout
@@ -21,13 +21,13 @@
             android:src="@drawable/ic_logo" />
 
         <TextView
-            android:layout_gravity="center"
             android:id="@+id/textView"
-            android:visibility="gone"
-            android:textColor="#ffffff"
-            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No Internet Connection!!" />
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="No Internet Connection!!"
+            android:textColor="#ffffff"
+            android:visibility="gone" />
     </LinearLayout>
 </RelativeLayout>

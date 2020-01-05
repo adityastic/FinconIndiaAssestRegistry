@@ -13,9 +13,9 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -37,11 +37,10 @@ import java.net.MalformedURLException;
 import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.net.UnknownServiceException;
 import java.text.SimpleDateFormat;
 
-import recoveryportal.adityagupta.recoveryportal.Placeholders.NOInternetPlaceHolder;
 import recoveryportal.adityagupta.recoveryportal.ParentActivity;
+import recoveryportal.adityagupta.recoveryportal.Placeholders.NOInternetPlaceHolder;
 import recoveryportal.adityagupta.recoveryportal.R;
 import recoveryportal.adityagupta.recoveryportal.Utils.Common;
 import recoveryportal.adityagupta.recoveryportal.Utils.ImageUtils;
@@ -53,11 +52,10 @@ public class NewDetailsDone extends AppCompatActivity implements ImageUtils.Imag
     ImageUtils imageutils;
 
     EditText et1;
-    private String file_name = "";
-
     Activity activity;
     boolean clicked = false;
     Button button;
+    private String file_name = "";
 
     @Override
     public void onBackPressed() {
@@ -125,7 +123,7 @@ public class NewDetailsDone extends AppCompatActivity implements ImageUtils.Imag
                         if (Common.isNetworkAvailable(getBaseContext())) {
                             if (!clicked) {
                                 clicked = true;
-                                new sendFile().execute(new String[]{Common.NEW_DETAIL_DONE});
+                                new sendFile().execute(Common.NEW_DETAIL_DONE);
                                 try {
                                     Common.startDownload(getBaseContext(),
                                             String.format(Common.NEW_DETAIL_DONE + "?number=%s&file=%s&exeid=%s&excelid=%s&time=%s",
@@ -167,7 +165,7 @@ public class NewDetailsDone extends AppCompatActivity implements ImageUtils.Imag
                                                     }
                                                 }
                                             });
-                                }catch (UnsupportedEncodingException e) {
+                                } catch (UnsupportedEncodingException e) {
                                     e.printStackTrace();
                                 }
                             }
@@ -217,7 +215,7 @@ public class NewDetailsDone extends AppCompatActivity implements ImageUtils.Imag
                 byte[] buffer = new byte[BUFFER_SIZE];
                 int bytesRead = -1;
 
-               
+
                 while ((bytesRead = inputStream.read(buffer)) != -1) {
                     outputStream.write(buffer, 0, bytesRead);
                 }

@@ -43,12 +43,12 @@
     </LinearLayout>
 
 
-    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="90dp">
+        android:layout_marginTop="90dp"
+        android:layout_marginBottom="30dp">
 
         <LinearLayout
             android:id="@+id/loginPanel"
@@ -62,7 +62,7 @@
             android:orientation="vertical"
             android:padding="15dp">
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -70,7 +70,7 @@
                 android:textColor="#333333"
                 android:textSize="17sp" />
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -79,7 +79,7 @@
                 android:textColor="@color/pridark"
                 android:textSize="13sp" />
 
-            <android.support.v7.widget.AppCompatEditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/email"
                 fontPath="fonts/GothamRoundedBold.ttf"
                 android:layout_width="match_parent"
@@ -95,7 +95,7 @@
                 android:theme="@style/MyEditTextTheme"
                 tools:ignore="InvalidImeActionId" />
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -103,7 +103,7 @@
                 android:textColor="@color/pridark"
                 android:textSize="12sp" />
 
-            <android.support.v7.widget.AppCompatEditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/password"
                 fontPath="fonts/GothamRoundedBold.ttf"
                 android:layout_width="match_parent"
@@ -119,7 +119,7 @@
 
         </LinearLayout>
 
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/email_sign_in_button"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
@@ -134,9 +134,9 @@
             app:layout_anchor="@id/loginPanel"
             app:layout_anchorGravity="bottom|center" />
 
-    </android.support.design.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"

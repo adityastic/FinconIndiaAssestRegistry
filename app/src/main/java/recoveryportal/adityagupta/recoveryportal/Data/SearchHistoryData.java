@@ -5,7 +5,7 @@ package recoveryportal.adityagupta.recoveryportal.Data;
  */
 
 public class SearchHistoryData {
-    public String key,date;
+    public String key, date;
 
     public SearchHistoryData(String key, String date) {
         this.key = key;

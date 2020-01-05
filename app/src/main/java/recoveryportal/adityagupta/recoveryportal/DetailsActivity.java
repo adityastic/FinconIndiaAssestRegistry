@@ -10,11 +10,11 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.core.widget.NestedScrollView;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -43,25 +43,21 @@ import static com.android.volley.VolleyLog.TAG;
 
 public class DetailsActivity extends AppCompatActivity {
 
-    TextView repostatus,customerName, vehModel, loanNo, engNo, chaNo, bucket, prinOS, emiAmount, bounceCharge, lppdue, firstEmi, loanEndDate, branch, client;
+    public final int REQUEST_CHECK_SETTINGS = 1;
+    TextView repostatus, customerName, vehModel, loanNo, engNo, chaNo, bucket, prinOS, emiAmount, bounceCharge, lppdue, firstEmi, loanEndDate, branch, client;
     FloatingActionMenu fmenu;
     Context context;
     LinearLayout ll;
-
     boolean clicked = false;
 
     @Override
     public void onBackPressed() {
-        if(fmenu.isOpened())
-        {
+        if (fmenu.isOpened()) {
             fmenu.close(true);
-        }else
-        {
+        } else {
             Toast.makeText(context, "Cannot go back without entering Action. Please enter ACTION from the floating button", Toast.LENGTH_SHORT).show();
         }
     }
-
-    public final int REQUEST_CHECK_SETTINGS = 1;
 
     private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
         new AlertDialog.Builder(this)
@@ -187,11 +183,9 @@ public class DetailsActivity extends AppCompatActivity {
 
         fmenu = findViewById(R.id.menu_red);
 
-        if(Common.searchResults.status.equals("null"))
-        {
-            Snackbar.make(fmenu,"No Repo Done",Snackbar.LENGTH_LONG).show();
-        }else
-        {
+        if (Common.searchResults.status.equals("null")) {
+            Snackbar.make(fmenu, "No Repo Done", Snackbar.LENGTH_LONG).show();
+        } else {
             repostatus.setText(Common.searchResults.status);
             ll.setVisibility(View.VISIBLE);
             TransitionDrawable transition = (TransitionDrawable) ll.getBackground();
@@ -294,7 +288,7 @@ public class DetailsActivity extends AppCompatActivity {
             }
         });
 
-        NestedScrollView nsv = (NestedScrollView) findViewById(R.id.nsv);
+        NestedScrollView nsv = findViewById(R.id.nsv);
         nsv.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
@@ -306,7 +300,7 @@ public class DetailsActivity extends AppCompatActivity {
             }
         });
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
     }

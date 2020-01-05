@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,13 +18,13 @@
             android:layout_marginTop="?actionBarSize"
             android:orientation="vertical">
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="20dp"
                 app:cardCornerRadius="5dp"
                 app:contentPadding="10dp">
 
@@ -57,14 +57,13 @@
                             <EditText
                                 android:id="@+id/policestation"
                                 android:layout_width="match_parent"
-                                android:inputType="textCapWords"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:background="@android:color/transparent"
                                 android:hint="Enter Police Station"
+                                android:inputType="textCapWords"
                                 android:maxLines="1"
-                                android:singleLine="true"
-                                 />
+                                android:singleLine="true" />
 
                         </LinearLayout>
 
@@ -72,8 +71,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginRight="20dp"
                             android:background="@drawable/rounded_uname">
 
                             <ImageView
@@ -89,31 +88,30 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:inputType="textCapWords"
                                 android:background="@android:color/transparent"
                                 android:hint="Enter Location"
+                                android:inputType="textCapWords"
                                 android:maxLines="1"
-                                android:singleLine="true"
-                                 />
+                                android:singleLine="true" />
 
                         </LinearLayout>
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_marginTop="10dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="Select Option"/>
+                            android:layout_marginTop="10dp"
+                            android:text="Select Option" />
 
                         <org.angmarch.views.NiceSpinner
                             android:id="@+id/nice_spinner"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"
                             android:layout_marginTop="10dp"
-                            android:textAlignment="center"
-                            android:background="@android:color/transparent" />
+                            android:layout_marginRight="20dp"
+                            android:background="@android:color/transparent"
+                            android:textAlignment="center" />
 
                         <View
                             android:layout_width="match_parent"
@@ -129,17 +127,17 @@
                             android:layout_marginTop="16dp"
                             android:background="@drawable/login_button_bg"
                             android:fontFamily="sans-serif"
-                            android:paddingBottom="10dp"
                             android:paddingLeft="60dp"
-                            android:paddingRight="60dp"
                             android:paddingTop="10dp"
+                            android:paddingRight="60dp"
+                            android:paddingBottom="10dp"
                             android:text="Submit"
                             android:textColor="#ffffff"
                             android:textSize="18dp" />
 
                     </LinearLayout>
                 </ScrollView>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
     </RelativeLayout>
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

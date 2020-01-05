@@ -1,7 +1,7 @@
 package recoveryportal.adityagupta.recoveryportal.Adapters;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,12 +33,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         this.context = context;
     }
 
-    @Override
-    public SearchViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.history_recycler, parent, false);
-        return new SearchViewHolder(v);
-    }
-
     public static void setRecyclerViewAnimation(Context context,
                                                 View view,
                                                 int animation_resource) {
@@ -47,22 +41,27 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     }
 
     @Override
+    public SearchViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.history_recycler, parent, false);
+        return new SearchViewHolder(v);
+    }
+
+    @Override
     public void onBindViewHolder(SearchViewHolder holder, int position) {
         SearchHistoryData data = list.get(position);
 
         String key = data.key;
-        Log.e("Length = ",key.length()+"");
-        if(key.length()==10)
-        {
-            key = key.substring(0,6) + "-" + key.substring(6);
-            key = key.substring(0,4) + "-" + key.substring(4);
-            key = key.substring(0,2) + "-" + key.substring(2);
+        Log.e("Length = ", key.length() + "");
+        if (key.length() == 10) {
+            key = key.substring(0, 6) + "-" + key.substring(6);
+            key = key.substring(0, 4) + "-" + key.substring(4);
+            key = key.substring(0, 2) + "-" + key.substring(2);
         }
         holder.key.setText(key);
 
         Calendar cal = Calendar.getInstance();
 
-        Date startDate,endDate;
+        Date startDate, endDate;
         try {
             startDate = new SimpleDateFormat("MM/dd/yyyy").parse(data.date);
             endDate = cal.getTime();
@@ -85,10 +84,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
 
             long elapsedSeconds = different / secondsInMilli;
 
-            if(elapsedDays == 0 )
+            if (elapsedDays == 0)
                 holder.date.setText("| Today");
-            else if(elapsedDays == 1)
-                    holder.date.setText("| Yesterday");
+            else if (elapsedDays == 1)
+                holder.date.setText("| Yesterday");
             else
                 holder.date.setText("| " + data.date);
 
@@ -96,7 +95,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             e.printStackTrace();
         }
 
-        setRecyclerViewAnimation(context,holder.itemView,R.anim.recyclerview_anim);
+        setRecyclerViewAnimation(context, holder.itemView, R.anim.recyclerview_anim);
     }
 
 
@@ -111,8 +110,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
 
         public SearchViewHolder(View itemView) {
             super(itemView);
-            key = (TextView) itemView.findViewById(R.id.key);
-            date = (TextView) itemView.findViewById(R.id.date);
+            key = itemView.findViewById(R.id.key);
+            date = itemView.findViewById(R.id.date);
         }
 
     }

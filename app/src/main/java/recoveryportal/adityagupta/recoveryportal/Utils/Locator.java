@@ -1,14 +1,13 @@
 package recoveryportal.adityagupta.recoveryportal.Utils;
 
 import android.content.Context;
-import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.util.Log;
 
 /**
@@ -23,18 +22,10 @@ public class Locator implements LocationListener {
 
     static private final int TIME_INTERVAL = 100; // minimum time between updates in milliseconds
     static private final int DISTANCE_INTERVAL = 1; // minimum distance between updates in meters
-
-    static public enum Method {
-        NETWORK,
-        GPS,
-        NETWORK_THEN_GPS
-    }
-
     private Context context;
     private LocationManager locationManager;
     private Locator.Method method;
     private Locator.Listener callback;
-
     public Locator(Context context) {
         super();
         this.context = context;
@@ -42,10 +33,10 @@ public class Locator implements LocationListener {
     }
 
     public void getLocation(Locator.Method method, Locator.Listener callback) {
-        if ( Build.VERSION.SDK_INT >= 23 &&
-                ContextCompat.checkSelfPermission( context, android.Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED &&
-                ContextCompat.checkSelfPermission( context, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return  ;
+        if (Build.VERSION.SDK_INT >= 23 &&
+                ContextCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
         }
 
         this.method = method;
@@ -77,10 +68,10 @@ public class Locator implements LocationListener {
 
     private void requestUpdates(String provider) {
         if (this.locationManager.isProviderEnabled(provider)) {
-            if ( Build.VERSION.SDK_INT >= 23 &&
-                    ContextCompat.checkSelfPermission( context, android.Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED &&
-                    ContextCompat.checkSelfPermission( context, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                return  ;
+            if (Build.VERSION.SDK_INT >= 23 &&
+                    ContextCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                    ContextCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                return;
             }
             if (provider.contentEquals(LocationManager.NETWORK_PROVIDER)
                     && Connectivity.isConnected(this.context)) {
@@ -133,6 +124,12 @@ public class Locator implements LocationListener {
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
         Log.d(LOG_TAG, "Provided status changed : " + provider + " : status : " + status);
+    }
+
+    public enum Method {
+        NETWORK,
+        GPS,
+        NETWORK_THEN_GPS
     }
 
     public interface Listener {

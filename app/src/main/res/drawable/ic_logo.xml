@@ -2,9 +2,13 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
-    android:viewportHeight="192"
-    android:viewportWidth="192">
-    <group android:pivotX="96" android:pivotY="96" android:scaleX="2" android:scaleY="2">
+    android:viewportWidth="192"
+    android:viewportHeight="192">
+    <group
+        android:pivotX="96"
+        android:pivotY="96"
+        android:scaleX="2"
+        android:scaleY="2">
         <path
             android:fillColor="#000000"
             android:pathData="M65 128.8c0 -0.2 0 -0.4 0 -0.6 0 -16.1 0 -32.3 0 -48.4 0 -9.4 7.7 -17.1 17.1 -17.1 3.2 0 6.3 0 9.5 0 0.2 0 0.4 0 0.5 0 0 0 0 0.1 0 0.1 -0.1 0.2 -0.2 0.2 -0.4 0.3 -5.5 2.8 -9 7.2 -10.2 13.4 -0.2 1.1 -0.3 2.2 -0.3 3.3 0 10.7 0 21.5 0 32.2 0 7.8 -5.4 14.6 -12.9 16.4 -1 0.2 -2 0.3 -2.9 0.4 -0.1 0.1 -0.2 0 -0.4 0z" />

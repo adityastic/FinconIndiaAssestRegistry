@@ -25,13 +25,13 @@
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:iconTint="#000000"
                 android:icon="@drawable/share"
+                android:iconTint="#000000"
                 android:title="Share" />
             <item
-                android:iconTint="#000000"
                 android:id="@+id/nav_send"
                 android:icon="@drawable/email"
+                android:iconTint="#000000"
                 android:title="Send" />
         </menu>
     </item>

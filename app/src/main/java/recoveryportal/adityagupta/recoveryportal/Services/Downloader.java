@@ -81,7 +81,7 @@ public class Downloader extends IntentService {
 
             output = new FileOutputStream(
                     getCacheDir().getAbsolutePath() + "/alljsons/" + tempfilename);
-            byte data[] = new byte[4096];
+            byte[] data = new byte[4096];
             long total = 0;
             int count;
             while ((count = input.read(data)) != -1) {
@@ -130,7 +130,7 @@ public class Downloader extends IntentService {
             Messenger messenger = (Messenger) extras.get(EXTRA_MESSENGER);
             Message msg = Message.obtain();
 
-                msg.arg1 = 1;
+            msg.arg1 = 1;
 
             try {
                 messenger.send(msg);

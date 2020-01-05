@@ -5,19 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="20dp"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginTop="?actionBarSize"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="20dp"
         app:cardCornerRadius="5dp"
         app:contentPaddingBottom="20dp"
         app:contentPaddingTop="20dp">
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -29,11 +29,11 @@
                 android:layout_marginTop="?actionBarSize"
                 android:orientation="vertical">
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
                     android:layout_margin="10dp"
+                    android:padding="10dp"
                     android:text="Enter Registration Number :-"
                     android:textColor="@color/pri"
                     android:textSize="13sp" />
@@ -151,10 +151,10 @@
                         android:layout_marginTop="16dp"
                         android:background="@drawable/login_button_bg"
                         android:fontFamily="sans-serif"
-                        android:paddingBottom="10dp"
                         android:paddingLeft="60dp"
-                        android:paddingRight="60dp"
                         android:paddingTop="10dp"
+                        android:paddingRight="60dp"
+                        android:paddingBottom="10dp"
                         android:text="Search"
                         android:textColor="#ffffff"
                         android:textSize="18dp" />
@@ -291,6 +291,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-        </android.support.constraint.ConstraintLayout>
-    </android.support.v7.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </RelativeLayout>

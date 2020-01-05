@@ -4,11 +4,11 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -25,8 +25,8 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import recoveryportal.adityagupta.recoveryportal.Placeholders.NOInternetPlaceHolder;
 import recoveryportal.adityagupta.recoveryportal.ParentActivity;
+import recoveryportal.adityagupta.recoveryportal.Placeholders.NOInternetPlaceHolder;
 import recoveryportal.adityagupta.recoveryportal.R;
 import recoveryportal.adityagupta.recoveryportal.Utils.Common;
 import recoveryportal.adityagupta.recoveryportal.Utils.Locator;
@@ -89,17 +89,17 @@ public class RepoDone extends AppCompatActivity {
         locator.getLocation(Locator.Method.NETWORK_THEN_GPS, new Locator.Listener() {
             @Override
             public void onLocationFound(Location location) {
-                 loc = location.getLatitude() + " " + location.getLongitude();
+                loc = location.getLatitude() + " " + location.getLongitude();
                 //getAddress(location.getLatitude(),location.getLongitude());
             }
 
             @Override
             public void onLocationNotFound() {
                 loc = "NULL";
-                }
+            }
         });
 
-        niceSpinner = (NiceSpinner) findViewById(R.id.nice_spinner);
+        niceSpinner = findViewById(R.id.nice_spinner);
         List<String> dataset = new LinkedList<>(Arrays.asList("Third Party", "Customer"));
         niceSpinner.attachDataSource(dataset);
 
@@ -137,7 +137,7 @@ public class RepoDone extends AppCompatActivity {
                                             if (msg.toString().contains("arg1=1")) {
                                                 try {
                                                     JSONObject mainObject = new JSONObject(ReadJsonFile.getJSONObject(getCacheDir() + "/alljsons/RepoDone.json").toString());
-                                                    Log.e("Repo",mainObject.toString());
+                                                    Log.e("Repo", mainObject.toString());
 
                                                     if (mainObject.getString("code").equals("Success")) {
                                                         Intent i = new Intent(RepoDone.this, ParentActivity.class);

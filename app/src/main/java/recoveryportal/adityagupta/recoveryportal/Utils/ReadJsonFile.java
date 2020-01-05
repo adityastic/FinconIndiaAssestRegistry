@@ -1,7 +1,6 @@
 package recoveryportal.adityagupta.recoveryportal.Utils;
 
 import android.content.Context;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -11,10 +10,6 @@ import java.io.FileInputStream;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * Created by Aditya on 18/12/16.
@@ -23,7 +18,7 @@ public class ReadJsonFile {
     static Context context;
 
     public ReadJsonFile(Context cont) {
-        this.context = cont;
+        context = cont;
     }
 
     public static JSONObject getJSONObject(String arg) {

@@ -3,15 +3,14 @@ package recoveryportal.adityagupta.recoveryportal.Fragments;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.os.Bundle;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +42,13 @@ public class SearchFragment extends Fragment {
 
     boolean clicked = false;
     Button search;
+
+    public SearchFragment() {
+    }
+
+    public static Fragment newInstance() {
+        return new SearchFragment();
+    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -129,9 +135,8 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (Common.isNetworkAvailable(getActivity())) {
-                    if (!clicked ) {
-                        if(!editText.getText().toString().equals("") && !editText2.getText().toString().equals("") && !editText3.getText().toString().equals("") && !editText4.getText().toString().equals(""))
-                        {
+                    if (!clicked) {
+                        if (!editText.getText().toString().equals("") && !editText2.getText().toString().equals("") && !editText3.getText().toString().equals("") && !editText4.getText().toString().equals("")) {
                             clicked = true;
                             Common.startDownload(getContext(), String.format(Common.SEARCH_LINK, (editText.getText().toString() + editText2.getText().toString() + editText3.getText().toString() + editText4.getText().toString()), Common.loginDetails.Email_Id, Common.loginDetails.Password), "Search.json", new Handler() {
 
@@ -179,9 +184,7 @@ public class SearchFragment extends Fragment {
                                     }
                                 }
                             });
-                        }
-                        else
-                        {
+                        } else {
                             Toast.makeText(getContext(), "Enter Registration Complete Number", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -194,17 +197,10 @@ public class SearchFragment extends Fragment {
 
     }
 
-    public SearchFragment() {
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_search, container, false);
 
-    }
-
-    public static Fragment newInstance() {
-        return new SearchFragment();
     }
 }

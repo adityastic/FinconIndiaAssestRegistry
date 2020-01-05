@@ -6,39 +6,30 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Messenger;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 import android.util.Log;
-import android.view.View;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import recoveryportal.adityagupta.recoveryportal.BuildConfig;
 import recoveryportal.adityagupta.recoveryportal.Data.LoginDetails;
 import recoveryportal.adityagupta.recoveryportal.Data.SearchHistoryData;
 import recoveryportal.adityagupta.recoveryportal.Data.SearchResults;
-import recoveryportal.adityagupta.recoveryportal.ParentActivity;
 import recoveryportal.adityagupta.recoveryportal.Placeholders.NOInternetPlaceHolder;
 import recoveryportal.adityagupta.recoveryportal.R;
 import recoveryportal.adityagupta.recoveryportal.Services.Downloader;
-import recoveryportal.adityagupta.recoveryportal.SplashScreen;
 
 public class Common {
 
@@ -56,13 +47,13 @@ public class Common {
     public static LoginDetails loginDetails;
     public static List<SearchHistoryData> list;
     public static double version = BuildConfig.VERSION_CODE;
-    public static boolean ff ;
+    public static boolean ff;
 
     @SuppressLint("HandlerLeak")
     public static void generateHistory(final Context context) {
         list = new ArrayList<>();
         if (isNetworkAvailable(context)) {
-            startDownload(context, String.format(Common.HISTORY_LINK,Common.loginDetails.ID), "History.json", new Handler() {
+            startDownload(context, String.format(Common.HISTORY_LINK, Common.loginDetails.ID), "History.json", new Handler() {
 
                 @Override
                 public void handleMessage(Message msg) {
@@ -97,25 +88,24 @@ public class Common {
                     if (msg.toString().contains("arg1=1")) {
                         try {
                             JSONObject mainObject = new JSONObject(ReadJsonFile.getJSONObject(context.getCacheDir() + "/alljsons/CheckApp.json").toString());
-                            Log.e("JSCHECK",ReadJsonFile.getJSONObject(context.getCacheDir() + "/alljsons/CheckApp.json").toString());
-                            if(mainObject.has("work"))
+                            Log.e("JSCHECK", ReadJsonFile.getJSONObject(context.getCacheDir() + "/alljsons/CheckApp.json").toString());
+                            if (mainObject.has("work"))
                                 ff = mainObject.getBoolean("work");
                             else
                                 ff = false;
 
-                            if(!ff)
-                            {
+                            if (!ff) {
                                 Intent i = new Intent(context, NOInternetPlaceHolder.class);
-                                i.putExtra("mess","Not Authorized");
+                                i.putExtra("mess", "Not Authorized");
                                 context.startActivity(i);
                             }
 
                             if (mainObject.has("finconindia")) {
                                 double newVersion = mainObject.getDouble("finconindia");
-                                if(newVersion>version){
-                                    createNotification(newVersion,context);
+                                if (newVersion > version) {
+                                    createNotification(newVersion, context);
                                     Intent i = new Intent(context, NOInternetPlaceHolder.class);
-                                    i.putExtra("mess","Please update App, Make sure you uninstall the current application and reinstall the new Application");
+                                    i.putExtra("mess", "Please update App, Make sure you uninstall the current application and reinstall the new Application");
                                     context.startActivity(i);
                                 }
                             }
@@ -131,7 +121,7 @@ public class Common {
         }
     }
 
-    private static void createNotification(double newVersion,Context context) {
+    private static void createNotification(double newVersion, Context context) {
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse("http://finconindia.com/Documents/FinconAndroidApp.apk"));
 
@@ -149,7 +139,7 @@ public class Common {
                 NotificationCompat.Builder(context, "default");
 
         mBuilder.setContentTitle("Immediate Update");
-        mBuilder.setContentText("You need to update your app to v"+newVersion+ " Immediately !!");
+        mBuilder.setContentText("You need to update your app to v" + newVersion + " Immediately !!");
         mBuilder.setAutoCancel(true);
         mBuilder.setContentIntent(resultPendingIntent);
         mBuilder.setSmallIcon(R.mipmap.ic_launcher);
@@ -189,10 +179,10 @@ public class Common {
     public static Bitmap scaleDown(Bitmap realImage, float maxImageSize,
                                    boolean filter) {
         float ratio = Math.min(
-                (float) maxImageSize / realImage.getWidth(),
-                (float) maxImageSize / realImage.getHeight());
-        int width = Math.round((float) ratio * realImage.getWidth());
-        int height = Math.round((float) ratio * realImage.getHeight());
+                maxImageSize / realImage.getWidth(),
+                maxImageSize / realImage.getHeight());
+        int width = Math.round(ratio * realImage.getWidth());
+        int height = Math.round(ratio * realImage.getHeight());
 
         Bitmap newBitmap = Bitmap.createScaledBitmap(realImage, width,
                 height, filter);

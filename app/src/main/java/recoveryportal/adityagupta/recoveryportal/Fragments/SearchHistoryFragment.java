@@ -2,12 +2,15 @@ package recoveryportal.adityagupta.recoveryportal.Fragments;
 
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,21 +23,20 @@ import recoveryportal.adityagupta.recoveryportal.Utils.Common;
  * A placeholder fragment containing a simple view.
  */
 public class SearchHistoryFragment extends Fragment {
-    SwipeRefreshLayout mSwipeRefreshLayout;
-    CardView noInternetCard;
-    RecyclerView mRecyclerView;
-    RecyclerView.Adapter mWallpaperAdapter;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mWallpaperAdapter;
 
     public static Fragment newInstance() {
         return new SearchHistoryFragment();
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mSwipeRefreshLayout = view.findViewById(R.id.swipeRefresh);
         mRecyclerView = view.findViewById(R.id.recycler_list);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         mSwipeRefreshLayout.setRefreshing(true);
 
@@ -43,14 +45,14 @@ public class SearchHistoryFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                mWallpaperAdapter = new SearchAdapter(getContext(), Common.list);
+                mWallpaperAdapter = new SearchAdapter(requireContext(), Common.list);
                 mRecyclerView.setAdapter(mWallpaperAdapter);
                 mSwipeRefreshLayout.setRefreshing(false);
             }
         }, 1000);
 
-        noInternetCard = view.findViewById(R.id.nointernet);
-        if (Common.isNetworkAvailable(getContext())) {
+        CardView noInternetCard = view.findViewById(R.id.nointernet);
+        if (Common.isNetworkAvailable(requireContext())) {
             noInternetCard.setVisibility(View.GONE);
             mRecyclerView.setVisibility(View.VISIBLE);
         } else {
@@ -66,7 +68,7 @@ public class SearchHistoryFragment extends Fragment {
         });
     }
 
-    public void refreshLayout() {
+    private void refreshLayout() {
         Common.generateHistory(getContext());
         mWallpaperAdapter = null;
         mRecyclerView.setAdapter(null);
